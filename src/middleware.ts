@@ -3,6 +3,7 @@ import type { NextRequest } from 'next/server'
 import { getSession } from './app/actions/session'
 
 export async function middleware(request: NextRequest) {
+    return NextResponse.redirect(new URL('/dashboard', request.url))
     const path = request.nextUrl.pathname
     const publicPaths = ['/auth/login', '/auth/register']
     console.log('middleware called')
